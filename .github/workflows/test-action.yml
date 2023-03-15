@@ -17,6 +17,7 @@ jobs:
           echo "event name= ${{ github.event_name }}"
           echo "action = ${{ github.event.action }}"
           echo "pr base ref = ${{ github.event.pull_request.base.ref }}"
+          echo "event=${{ toJSON(github.event) }}"
           echo "is target main or shmain? = ${{ contains(fromJSON('["main", "shmain"]'), github.event.pull_request.base.ref) }}"
       - name: On Merge Only
         if: ${{ github.event.pull_request.merged == true && contains(fromJSON('["main", "shmain"]'), github.event.pull_request.base.ref) }}
