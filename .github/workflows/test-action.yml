@@ -1,5 +1,10 @@
 name: TestMergeToMain
-on: pull_request
+on: 
+  push:
+    branches:
+      - main
+      - shmain
+  pull_request:
 
 jobs:
   build:
