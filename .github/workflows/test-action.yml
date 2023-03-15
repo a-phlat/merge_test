@@ -12,13 +12,8 @@ jobs:
     steps:
       - name: Step 1
         run: |
-          echo "This is step 1. It should run unconditionally!"
-          echo "merge = ${{ github.event.pull_request.merged }}"
-          echo "event name= ${{ github.event_name }}"
-          echo "action = ${{ github.event.action }}"
-          echo "pr base ref = ${{ github.event.pull_request.base.ref }}"
+          echo "This is step 1. It should run unconditionally!!!"
           echo "event=${{ toJSON(github.event) }}"
-          echo "is target main or shmain? = ${{ contains(fromJSON('["main", "shmain"]'), github.event.pull_request.base.ref) }}"
       - name: On Merge Only
         if: ${{ github.event.pull_request.merged == true && contains(fromJSON('["main", "shmain"]'), github.event.pull_request.base.ref) }}
         run: |
