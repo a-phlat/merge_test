@@ -14,8 +14,6 @@ jobs:
         run: |
           echo "This is step 1. It should run unconditionally!"
           echo "action=${{ github.event.name }}"
-          # JSONIFIED_EVENT="${{ toJSON(github.event) }}"
-          # echo "event=${JSONIFIED_EVENT}"
       - name: On Merge Only
         if: ${{ github.event.pull_request.merged == true && contains(fromJSON('["main", "shmain"]'), github.event.pull_request.base.ref) }}
         run: |
