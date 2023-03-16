@@ -21,11 +21,12 @@ jobs:
           echo "action=${{ github.event_name }}"
       - name: On Merge Only
         if: ${{ github.event_name == 'push' }}
+        env: 
+          EVENT_DETAILS: ${{ toJSON(github.event) }}
         run: |
           echo "This step should only run when we merge a PR to main or shmain"
           echo "push base_ref=${{ github.event.push.base_ref }}"
           echo "push ref=${{ github.event.push.ref }}"
           echo "push repository=${{ github.event.push.repository.name }}"
-          EVENT_DETAILS="${{ toJSON(github.event) }}"
           echo "EVENT_DETAILS=${EVENT_DETAILS}"
       
