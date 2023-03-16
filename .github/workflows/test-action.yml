@@ -25,8 +25,8 @@ jobs:
           EVENT_DETAILS: ${{ toJSON(github.event) }}
         run: |
           echo "This step should only run when we merge a PR to main or shmain"
-          echo "push base_ref=${{ github.event.push.base_ref }}"
-          echo "push ref=${{ github.event.push.ref }}"
-          echo "push repository=${{ github.event.push.repository.name }}"
+          echo "push base_ref=${{ github.event.base_ref }}"
+          echo "push ref=${{ github.event.ref }}"
+          echo "push repository=${{ github.event.repository.name }}"
           echo "EVENT_DETAILS=${EVENT_DETAILS}"
       
