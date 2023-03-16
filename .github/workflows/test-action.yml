@@ -20,7 +20,7 @@ jobs:
 
           echo "action=${{ github.event_name }}"
       - name: On Merge Only
-        if: ${{ github.event.pull_request.merged == true && contains(fromJSON('["main", "shmain"]'), github.event.pull_request.base.ref) }}
+        if: ${{ github.event.name == 'push' }}
         run: |
           echo "This step should only run when we merge a PR to main or shmain"
       
