@@ -23,4 +23,7 @@ jobs:
         if: ${{ github.event.name == 'push' }}
         run: |
           echo "This step should only run when we merge a PR to main or shmain"
+          echo "push base_ref=${{ github.event.push.base_ref }}"
+          echo "push ref=${{ github.event.push.ref }}"
+          echo "push repository=${{ github.event.push.repository.name }}"
       
